@@ -1,5 +1,7 @@
 <?php
 namespace App;
+use App\db\connect;
+use App\getInstance;
 
 class staff extends connect
 {

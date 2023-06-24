@@ -1,14 +1,21 @@
 <?php
-namespace App;
+namespace App\admin_area;
+use App\db\connect;
+use App\getInstance;
 class admin_area extends connect
 {
-    private $queryPost = 'INSERT INTO admin_area(id,id_area,id_staff,id_position,id_journeys) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
-    private $queryGetAll = 'SELECT admin_area.id, areas.name AS areas_name, staff.name AS staff_name, position.name AS position_name, journeys.name AS journeys_name FROM admin_area, INNER JOIN areas ON admin_area.id_area = areas.id INNER JOIN staff ON admin_area.id_staff = staff.id INNER JOIN position ON admin_area.id_position = position.id INNER JOIN journeys ON admin_area.id_journey = journeys.id  WHERE admin_area.id=:identification ';
-    private $queryUpdate = 'UPDATE admin_area SET id = :identificacion, id_area = :idarea, id_staff = :idstaff, id_position = :idposicion, id_journeys = :idjpurneys  WHERE id = :identificacion';
+    private $queryPost = 'INSERT INTO admin_area(id,id_area,id_staff,id_position,id_journey) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
+    private $queryGetAll = 'SELECT admin_area.id, areas.name_area AS area_name, staff.id AS staff_id, position.name_position AS position_name, journey.name_journey AS journey_name
+    FROM admin_area
+    INNER JOIN areas ON admin_area.id_area = areas.id
+    INNER JOIN staff ON admin_area.id_staff = staff.id
+    INNER JOIN position ON admin_area.id_position = position.id
+    INNER JOIN journey ON admin_area.id_journey = journey.id';
+    private $queryUpdate = 'UPDATE admin_area SET id = :identificacion, id_area = :idarea, id_staff = :idstaff, id_position = :idposicion, id_journey = :idjpurneys  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM admin_area WHERE id = :identificacion';
     private $message;
     use getInstance;
-    function __construct(private $id=1, private $id_area=1, private $id_staff=1, private $id_position=1, private $id_journeys=1)
+    function __construct(private $id=1, private $id_area=1, private $id_staff=1, private $id_position=1, private $id_journey=1)
     {
         parent::__construct();
     }
@@ -20,7 +27,7 @@ class admin_area extends connect
             $res->bindValue("idarea", $this->id_area);
             $res->bindValue("idstaff", $this->id_staff);
             $res->bindValue("idposicion", $this->id_position);
-            $res->bindValue("idjpurneys", $this->id_journeys);
+            $res->bindValue("idjpurneys", $this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200 + $res->rowCount(), "Message" => "inserted data"];
         } catch (\PDOException $e) {
@@ -55,7 +62,7 @@ class admin_area extends connect
             $res->bindValue("idarea", $this->id_area);
             $res->bindValue("idstaff", $this->id_staff);
             $res->bindValue("idposicion", $this->id_position);
-            $res->bindValue("idjpurneys", $this->id_journeys);;
+            $res->bindValue("idjpurneys", $this->id_journey);;
             $res->execute();
 
             if ($res->rowCount() > 0) {
@@ -77,7 +84,7 @@ class admin_area extends connect
             $res->bindValue("idarea", $this->id_area);
             $res->bindValue("idstaff", $this->id_staff);
             $res->bindValue("idposicion", $this->id_position);
-            $res->bindValue("idjpurneys", $this->id_journeys);
+            $res->bindValue("idjpurneys", $this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

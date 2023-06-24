@@ -21,12 +21,15 @@ SET time_zone = "+00:00";
 -- Base de datos: `campusland`
 --
 USE campusland;
-SELECT * FROM academic_area;
+SELECT * FROM admin_area;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `academic_area`
 --
+
+ALTER TABLE academic_area CHANGE id_journeys id_journey int NOT NULL;
+
 
 CREATE TABLE `academic_area` (
   `id` int NOT NULL,
@@ -185,7 +188,7 @@ CREATE TABLE `english_skills` (
 -- Estructura de tabla para la tabla `journey`
 --
 
-CREATE TABLE `journey` (
+CREATE TABLE `academic_area` (
   `id` int NOT NULL,
   `name_journey` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `check_in` time NOT NULL,
@@ -389,7 +392,7 @@ CREATE TABLE `soft_skills` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `staff`
+-- Estructura de tabla para la tabla `areas`
 --
 
 CREATE TABLE `staff` (

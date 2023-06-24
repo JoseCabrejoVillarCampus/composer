@@ -1,9 +1,12 @@
 <?php
-namespace App;
+namespace App\regions;
+use App\db\connect;
+use App\getInstance;
 class regions extends connect
 {
     private $queryPost = 'INSERT INTO regions(id,name_region,id_country) VALUES(:identificacion,:namereg,:country)';
-    private $queryGetAll = 'SELECT regions.id, countries.name AS countries_name FROM regions, INNER JOIN countries ON regions.id_countries = countries.id  WHERE regions.id=:identification ';
+    private $queryGetAll = 'SELECT regions.*, countries.name_country AS country_name FROM regions
+    INNER JOIN countries ON regions.id_country = countries.id';
     private $queryUpdate = 'UPDATE regions SET id = :identificacion, name_region = :namereg, id_country = :country  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM regions WHERE id = :identificacion';
     private $message;

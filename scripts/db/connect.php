@@ -10,7 +10,7 @@
                 $this->conx = new \PDO($this->driver.":host=".$this->__get('host').";port=".$this->port.";dbname=".$this->__get('dbname').";user=".$this->user.";password=".$this->password);
                 $this->conx->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (\PDOException $e) {
-                $this->conx = $e->getMessage();
+                echo "error" .$e->getMessage();
             }
         }
     }

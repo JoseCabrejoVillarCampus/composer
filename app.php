@@ -10,7 +10,7 @@
 
     $router->get('/api', function(){
 
-        \App\areas\areas::getInstance(json_decode(file_get_contents("php://input"),true))->getAllAreas();
+        \App\academic_area\academic_area::getInstance(json_decode(file_get_contents("php://input"),true))->getAllAcademicArea();
 
     });
 
