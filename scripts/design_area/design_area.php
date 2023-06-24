@@ -1,9 +1,16 @@
 <?php
-namespace App;
+namespace App\design_area;
+use App\db\connect;
+use App\getInstance;
 class design_area extends connect
 {
     private $queryPost = 'INSERT INTO design_area(id,id_area,id_staff,id_position,id_journey) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
-    private $queryGetAll = 'SELECT design_area.id, areas.name AS areas_name, staff.name AS staff_name, position.name AS position_name, journeys.name AS journeys_name FROM design_area, INNER JOIN areas ON design_area.id_area = areas.id INNER JOIN staff ON design_area.id_staff = staff.id INNER JOIN position ON design_area.id_position = position.id INNER JOIN journeys ON design_area.id_journey = journeys.id  WHERE design_area.id=:identification ';
+    private $queryGetAll = 'SELECT design_area.*, areas.name_area AS areas_name, staff.first_name AS staff_name, position.name_position AS position_name, journey.name_journey AS journey_name 
+    FROM design_area 
+    INNER JOIN areas ON design_area.id_area = areas.id 
+    INNER JOIN staff ON design_area.id_staff = staff.id 
+    INNER JOIN position ON design_area.id_position = position.id 
+    INNER JOIN journey ON design_area.id_journey = journey.id';
     private $queryUpdate = 'UPDATE design_area SET id = :identificacion, id_area = :idarea, id_staff = :idstaff, id_position = :idposicion, id_journey = :idjpurneys  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM design_area WHERE id = :identificacion';
     private $message;
@@ -12,7 +19,7 @@ class design_area extends connect
     {
         parent::__construct();
     }
-    public function postAcademicArea()
+    public function postDesignArea()
     {
         try {
             $res = $this->conx->prepare($this->queryPost);
@@ -29,7 +36,7 @@ class design_area extends connect
             print_r($this->message);
         }
     }
-    public function getAllAcademicArea()
+    public function getAllDesignArea()
     {
         try {
             $res = $this->conx->prepare($this->queryGetAll);
@@ -46,7 +53,7 @@ class design_area extends connect
             print_r($this->message);
         }
     }
-    public function putAcademicArea()
+    public function putDesignArea()
     {
 
         try {
@@ -69,7 +76,7 @@ class design_area extends connect
             print_r($this->message);
         }
     }
-    public function deleteAcademicArea()
+    public function deleteDesignArea()
     {
         try {
             $res = $this->conx->prepare($this->queryDelete);

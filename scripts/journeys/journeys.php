@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\journeys;
+use App\db\connect;
+use App\getInstance;
 class journeys extends connect
 {
     private $queryPost = 'INSERT INTO journeys(id,name_journey,check_in,check_out) VALUES(:identificacion,:name,:checkin,:checkout)';

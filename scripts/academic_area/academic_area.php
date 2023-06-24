@@ -4,7 +4,7 @@ use App\db\connect;
 use App\getInstance;
 class academic_area extends connect
 {
-    private $queryPost = 'INSERT INTO academic_area(id,id_area,id_staff,id_position,id_journeys) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
+    private $queryPost = 'INSERT INTO academic_area(id,id_area,id_staff,id_position,id_journey) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
     private $queryGetAll = 'SELECT academic_area.id, areas.name_area AS area_name, staff.id AS staff_id, position.name_position AS position_name, journey.name_journey AS journey_name
     FROM academic_area
     INNER JOIN areas ON academic_area.id_area = areas.id

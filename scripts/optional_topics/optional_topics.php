@@ -1,9 +1,17 @@
 <?php
-namespace App;
+namespace App\optional_topics;
+use App\db\connect;
+use App\getInstance;
 class optional_topics extends connect
 {
     private $queryPost = 'INSERT INTO optional_topics(id,id_topic,id_team,id_subject,id_camper,id_team_educator) VALUES(:identificacion,:topic,:team,:subject,:camper,:teameducator)';
-    private $queryGetAll = 'SELECT optional_topics.id, teams.name AS teams_name, journeys.name AS journey_name, trainers.name AS trainer_name, locations.name AS location_name, subjects.name AS subject_name FROM optional_topics, INNER JOIN team_schedules ON optional_topics.id_team_schedule = team_schedules.id INNER JOIN journeys ON optional_topics.id_journey = journeys.id INNER JOIN trainers ON optional_topics.id_trainer = trainers.id INNER JOIN locations ON optional_topics.id_location = locations.id INNER JOIN subjects ON optional_topics.id_subject = subjects.id WHERE optional_topics.id=:identification ';
+    private $queryGetAll = 'SELECT optional_topics.*, topics.id AS id_topic, teams.name_team AS team_name, journey.name AS journey_name, trainers.name AS trainer_name, locations.name AS location_name, subjects.name AS subject_name 
+    FROM optional_topics
+    INNER JOIN topics ON optional_topics.id_topic = topics.id 
+    INNER JOIN team_schedule_software_skiils ON optional_topics.team_schedule_software_skiils = team_schedule_software_skiils.id 
+    INNER JOIN journey ON optional_topics.id_journey = journey.id 
+    INNER JOIN trainers ON optional_topics.id_trainer = trainers.id 
+    INNER JOIN locations ON optional_topics.id_location = locations.id INNER JOIN subjects ON optional_topics.id_subject = subjects.id';
     private $queryUpdate = 'UPDATE optional_topics SET id = :identificacion, id_topic = :topic, id_team = :team, id_subject = :subject, id_camper = :camper, id_team_educator = :teameducator  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM optional_topics WHERE id = :identificacion';
     private $message;

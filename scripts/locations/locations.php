@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\locations;
+use App\db\connect;
+use App\getInstance;
 class locations extends connect
 {
     private $queryPost = 'INSERT INTO locations(id,name_location) VALUES(:identificacion,:location)';

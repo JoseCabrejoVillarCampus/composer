@@ -1,9 +1,13 @@
 <?php
-namespace App;
+namespace App\emergency_contact;
+use App\db\connect;
+use App\getInstance;
 class emergency_contact extends connect
 {
     private $queryPost = 'INSERT INTO emergency_contact(id,id_staff,cel_number,relationship,full_name,email) VALUES(:identificacion,:staff,:phone,:relation,:name,:mail)';
-    private $queryGetAll = 'SELECT emergency_contact.id, staff.name AS staff_name FROM emergency_contact, INNER JOIN staff ON emergency_contact.id_staff = staff.id  WHERE emergency_contact.id=:identification ';
+    private $queryGetAll = 'SELECT emergency_contact.*, staff.first_name AS staff_name 
+    FROM emergency_contact 
+    INNER JOIN staff ON emergency_contact.id_staff = staff.id';
     private $queryUpdate = 'UPDATE emergency_contact SET id = :identificacion, id_staff = :staff, cel_number = :phone, relationship = :relation, full_name = :name, email = :mail  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM emergency_contact WHERE id = :identificacion';
     private $message;

@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\campers;
+use App\db\connect;
+use App\getInstance;
 class levels extends connect
 {
     private $queryPost = 'INSERT INTO levels(id,name_level,group_level) VALUES(:identificacion,:name,:group)';

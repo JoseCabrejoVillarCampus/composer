@@ -1,9 +1,16 @@
 <?php
-namespace App;
+namespace App\maint_area;
+use App\db\connect;
+use App\getInstance;
 class maint_area extends connect
 {
     private $queryPost = 'INSERT INTO maint_area(id,id_area,id_staff,id_position,id_journey) VALUES(:identificacion,:idarea,:idstaff,:idposicion,:idjpurneys)';
-    private $queryGetAll = 'SELECT maint_area.id, areas.name AS areas_name, staff.name AS staff_name, position.name AS position_name, journeys.name AS journeys_name FROM maint_area, INNER JOIN areas ON maint_area.id_area = areas.id INNER JOIN staff ON maint_area.id_staff = staff.id INNER JOIN position ON maint_area.id_position = position.id INNER JOIN journeys ON maint_area.id_journey = journeys.id  WHERE maint_area.id=:identification ';
+    private $queryGetAll = 'SELECT maint_area.id, areas.name_area AS area_name, staff.id AS staff_id, position.name_position AS position_name, journey.name_journey AS journey_name
+    FROM maint_area
+    INNER JOIN areas ON maint_area.id_area = areas.id
+    INNER JOIN staff ON maint_area.id_staff = staff.id
+    INNER JOIN position ON maint_area.id_position = position.id
+    INNER JOIN journey ON maint_area.id_journey = journey.id';
     private $queryUpdate = 'UPDATE maint_area SET id = :identificacion, id_area = :idarea, id_staff = :idstaff, id_position = :idposicion, id_journey = :idjpurneys  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM maint_area WHERE id = :identificacion';
     private $message;
