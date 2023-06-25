@@ -352,6 +352,21 @@
     $router->post('/api/review_skills/del', function(){
         \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteReviewSkills();
     });
+    /*
+    ?rutas  routes
+    */
+    $router->get('/api/routes', function(){
+        \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->getAllRoutes();
+    });
+    $router->post('/api/routes/post', function(){
+        \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->postRoutes();
+    });
+    $router->post('/api/routes/put', function(){
+        \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->putRoutes();
+    });
+    $router->post('/api/routes/del', function(){
+        \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRoutes();
+    });
     $router->run();
 
 ?>
