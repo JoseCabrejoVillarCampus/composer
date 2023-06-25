@@ -82,6 +82,21 @@
     $router->post('/api/chapters/del', function(){
         \App\chapters\chapters::getInstance(json_decode(file_get_contents("php://input"),true))->deleteChapters();
     });
+    /*
+    ?rutas  cities
+    */
+    $router->get('/api/cities', function(){
+        \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->getAllCities();
+    });
+    $router->post('/api/cities/post', function(){
+        \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->postCities();
+    });
+    $router->post('/api/cities/put', function(){
+        \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->putCities();
+    });
+    $router->post('/api/cities/del', function(){
+        \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCities();
+    });
     $router->run();
 
 ?>
