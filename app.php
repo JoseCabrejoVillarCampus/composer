@@ -307,6 +307,21 @@
     $router->post('/api/position/del', function(){
         \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->deletePosition();
     });
+    /*
+    ?rutas  psychologist
+    */
+    $router->get('/api/psychologist', function(){
+        \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->getAllPsychologist();
+    });
+    $router->post('/api/psychologist/post', function(){
+        \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->postPsychologist();
+    });
+    $router->post('/api/psychologist/put', function(){
+        \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->putPsychologist();
+    });
+    $router->post('/api/psychologist/del', function(){
+        \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->deletePsychologist();
+    });
     $router->run();
 
 ?>
