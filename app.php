@@ -142,6 +142,21 @@
     $router->post('/api/design_area/del', function(){
         \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteDesignArea();
     });
+    /*
+    ?rutas  emergency_contact
+    */
+    $router->get('/api/emergency_contact', function(){
+        \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->getAllEmergencyContact();
+    });
+    $router->post('/api/emergency_contact/post', function(){
+        \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->postEmergencyContact();
+    });
+    $router->post('/api/emergency_contact/put', function(){
+        \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->putEmergencyContact();
+    });
+    $router->post('/api/emergency_contact/del', function(){
+        \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEmergencyContact();
+    });
     $router->run();
 
 ?>
