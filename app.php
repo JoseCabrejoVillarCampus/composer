@@ -112,6 +112,21 @@
     $router->post('/api/contact_info/del', function(){
         \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->deleteContacInfo();
     });
+    /*
+    ?rutas  countries
+    */
+    $router->get('/api/countries', function(){
+        \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->getAllCountries();
+    });
+    $router->post('/api/countries/post', function(){
+        \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->postCountries();
+    });
+    $router->post('/api/countries/put', function(){
+        \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->putCountries();
+    });
+    $router->post('/api/countries/del', function(){
+        \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCountries();
+    });
     $router->run();
 
 ?>

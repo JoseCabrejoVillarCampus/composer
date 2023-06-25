@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\countries;
+use App\db\connect;
+use App\getInstance;
 class countries extends connect
 {
     private $queryPost = 'INSERT INTO countries(id,name_country) VALUES(:identificacion,:country)';
