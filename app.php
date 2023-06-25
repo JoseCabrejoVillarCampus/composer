@@ -322,6 +322,21 @@
     $router->post('/api/psychologist/del', function(){
         \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->deletePsychologist();
     });
+    /*
+    ?rutas  regions
+    */
+    $router->get('/api/regions', function(){
+        \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->getAllRegions();
+    });
+    $router->post('/api/regions/post', function(){
+        \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->postRegions();
+    });
+    $router->post('/api/regions/put', function(){
+        \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->putRegions();
+    });
+    $router->post('/api/regions/del', function(){
+        \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRegions();
+    });
     $router->run();
 
 ?>
