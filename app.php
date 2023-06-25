@@ -262,6 +262,22 @@
     $router->post('/api/modules/del', function(){
         \App\modules\modules::getInstance(json_decode(file_get_contents("php://input"),true))->deleteModules();
     });
+    /*
+    ?rutas  optional_topics
+    */
+    $router->get('/api/optional_topics', function(){
+        \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->getAllOptionalTopics();
+    });
+    $router->post('/api/optional_topics/post', function(){
+        \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->postOptionalTopics();
+    });
+    $router->post('/api/optional_topics/put', function(){
+        \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->putOptionalTopics();
+    });
+    $router->post('/api/optional_topics/del', function(){
+        \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteOptionalTopics();
+    });
+    
     $router->run();
 
 ?>
