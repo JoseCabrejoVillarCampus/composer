@@ -187,6 +187,21 @@
     $router->post('/api/journey/del', function(){
         \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->deleteJourney();
     });
+    /*
+    ?rutas  levels
+    */
+    $router->get('/api/levels', function(){
+        \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->getAllLevels();
+    });
+    $router->post('/api/levels/post', function(){
+        \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->postLevels();
+    });
+    $router->post('/api/levels/put', function(){
+        \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->putLevels();
+    });
+    $router->post('/api/levels/del', function(){
+        \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLevels();
+    });
     $router->run();
 
 ?>

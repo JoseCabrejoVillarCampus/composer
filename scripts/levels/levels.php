@@ -1,5 +1,5 @@
 <?php
-namespace App\campers;
+namespace App\levels;
 use App\db\connect;
 use App\getInstance;
 class levels extends connect
