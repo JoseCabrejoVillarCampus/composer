@@ -277,7 +277,21 @@
     $router->post('/api/optional_topics/del', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteOptionalTopics();
     });
-    
+    /*
+    ?rutas  personal_ref
+    */
+    $router->get('/api/personal_ref', function(){
+        \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->getAllPersonalRef();
+    });
+    $router->post('/api/personal_ref/post', function(){
+        \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->postPersonalRef();
+    });
+    $router->post('/api/personal_ref/put', function(){
+        \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->putPersonalRef();
+    });
+    $router->post('/api/personal_ref/del', function(){
+        \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->deletePersonalRef();
+    });
     $router->run();
 
 ?>
