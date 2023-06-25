@@ -157,6 +157,21 @@
     $router->post('/api/emergency_contact/del', function(){
         \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEmergencyContact();
     });
+    /*
+    ?rutas  english_skills
+    */
+    $router->get('/api/english_skills', function(){
+        \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->getAllEnglishSkills();
+    });
+    $router->post('/api/english_skills/post', function(){
+        \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postEnglishSkills();
+    });
+    $router->post('/api/english_skills/put', function(){
+        \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putEnglishSkills();
+    });
+    $router->post('/api/english_skills/del', function(){
+        \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEnglishSkills();
+    });
     $router->run();
 
 ?>
