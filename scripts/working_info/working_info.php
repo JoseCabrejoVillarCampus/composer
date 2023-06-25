@@ -1,4 +1,7 @@
 <?php
+namespace App\working_info;
+use App\db\connect;
+use App\getInstance;
 class working_info extends connect
 {
     private $queryPost = 'INSERT INTO working_info(id,id_staff,years_exp,months_exp, id_work_reference,id_personal_ref,start_contract,end_contract) VALUES(:identificacion,:idstaff,:yearsexp,:monthsexp, :idworkreference,:idpersonal,:startcontract,:endcontract)';
@@ -44,7 +47,7 @@ class working_info extends connect
             $res->bindValue("idpersonal", 1);
             $res->bindValue("startcontract", 1);
             $res->bindValue("endcontract", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {

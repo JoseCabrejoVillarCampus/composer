@@ -610,6 +610,21 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->delete('/api/work_reference/del', function(){
         \App\work_reference\work_reference::getInstance(json_decode(file_get_contents("php://input"),true))->deleteWorkRef();
     });
+    /*
+    ?rutas  working_info
+    */
+    $router->get('/api/working_info', function(){
+        \App\working_info\working_info::getInstance(json_decode(file_get_contents("php://input"),true))->getAllWorkingInfo();
+    });
+    $router->post('/api/working_info/post', function(){
+        \App\working_info\working_info::getInstance(json_decode(file_get_contents("php://input"),true))->postWorkingInfo();
+    });
+    $router->put('/api/working_info/put', function(){
+        \App\working_info\working_info::getInstance(json_decode(file_get_contents("php://input"),true))->putWorkingInfo();
+    });
+    $router->delete('/api/working_info/del', function(){
+        \App\working_info\working_info::getInstance(json_decode(file_get_contents("php://input"),true))->deleteWorkingInfo();
+    });
     $router->run(); 
 
 ?>
