@@ -97,6 +97,21 @@
     $router->post('/api/cities/del', function(){
         \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCities();
     });
+    /*
+    ?rutas  contact_info
+    */
+    $router->get('/api/contact_info', function(){
+        \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->getAllContacInfo();
+    });
+    $router->post('/api/contact_info/post', function(){
+        \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->postContacInfo();
+    });
+    $router->post('/api/contact_info/put', function(){
+        \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->putContacInfo();
+    });
+    $router->post('/api/contact_info/del', function(){
+        \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->deleteContacInfo();
+    });
     $router->run();
 
 ?>
