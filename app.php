@@ -172,6 +172,21 @@
     $router->post('/api/english_skills/del', function(){
         \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEnglishSkills();
     });
+    /*
+    ?rutas  journey
+    */
+    $router->get('/api/journey', function(){
+        \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->getAllJourney();
+    });
+    $router->post('/api/journey/post', function(){
+        \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->postJourney();
+    });
+    $router->post('/api/journey/put', function(){
+        \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->putJourney();
+    });
+    $router->post('/api/journey/del', function(){
+        \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->deleteJourney();
+    });
     $router->run();
 
 ?>

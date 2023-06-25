@@ -1,13 +1,13 @@
 <?php
-namespace App\journeys;
+namespace App\journey;
 use App\db\connect;
 use App\getInstance;
-class journeys extends connect
+class journey extends connect
 {
-    private $queryPost = 'INSERT INTO journeys(id,name_journey,check_in,check_out) VALUES(:identificacion,:name,:checkin,:checkout)';
-    private $queryGetAll = 'SELECT * FROM journeys';
-    private $queryUpdate = 'UPDATE journeys SET id = :identificacion, name_journey = :name, check_in = :checkin, check_out = :checkout  WHERE id = :identificacion';
-    private $queryDelete = 'DELETE FROM journeys WHERE id = :identificacion';
+    private $queryPost = 'INSERT INTO journey(id,name_journey,check_in,check_out) VALUES(:identificacion,:name,:checkin,:checkout)';
+    private $queryGetAll = 'SELECT * FROM journey';
+    private $queryUpdate = 'UPDATE journey SET id = :identificacion, name_journey = :name, check_in = :checkin, check_out = :checkout  WHERE id = :identificacion';
+    private $queryDelete = 'DELETE FROM journey WHERE id = :identificacion';
     private $message;
     use getInstance;
     function __construct(private $id=1, public $name_journey=1, private $check_in=1, private $check_out=1)
