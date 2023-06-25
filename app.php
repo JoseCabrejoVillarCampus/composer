@@ -232,6 +232,21 @@
     $router->post('/api/maint_area/del', function(){
         \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteMaintArea();
     });
+    /*
+    ?rutas  marketing_area
+    */
+    $router->get('/api/marketing_area', function(){
+        \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->getAllMarketingArea();
+    });
+    $router->post('/api/marketing_area/post', function(){
+        \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->postMarketingArea();
+    });
+    $router->post('/api/marketing_area/put', function(){
+        \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->putMarketingArea();
+    });
+    $router->post('/api/marketing_area/del', function(){
+        \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteMarketingArea();
+    });
     $router->run();
 
 ?>
