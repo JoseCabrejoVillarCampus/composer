@@ -202,6 +202,21 @@
     $router->post('/api/levels/del', function(){
         \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLevels();
     });
+    /*
+    ?rutas  locations
+    */
+    $router->get('/api/locations', function(){
+        \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->getAllLocation();
+    });
+    $router->post('/api/locations/post', function(){
+        \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->postLocation();
+    });
+    $router->post('/api/locations/put', function(){
+        \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->putLocation();
+    });
+    $router->post('/api/locations/del', function(){
+        \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLocation();
+    });
     $router->run();
 
 ?>
