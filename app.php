@@ -127,6 +127,21 @@
     $router->post('/api/countries/del', function(){
         \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCountries();
     });
+    /*
+    ?rutas  design_area
+    */
+    $router->get('/api/design_area', function(){
+        \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->getAllDesignArea();
+    });
+    $router->post('/api/design_area/post', function(){
+        \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->postDesignArea();
+    });
+    $router->post('/api/design_area/put', function(){
+        \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->putDesignArea();
+    });
+    $router->post('/api/design_area/del', function(){
+        \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteDesignArea();
+    });
     $router->run();
 
 ?>
