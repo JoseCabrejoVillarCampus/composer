@@ -382,6 +382,21 @@
     $router->post('/api/soft_skills/del', function(){
         \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftSkill();
     });
+    /*
+    ?rutas  software_skills
+    */
+    $router->get('/api/software_skills', function(){
+        \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->getAllSoftwareSkill();
+    });
+    $router->post('/api/software_skills/post', function(){
+        \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postSoftwareSkill();
+    });
+    $router->post('/api/software_skills/put', function(){
+        \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putSoftwareSkill();
+    });
+    $router->post('/api/software_skills/del', function(){
+        \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftwareSkill();
+    });
     $router->run();
 
 ?>

@@ -1,9 +1,9 @@
 <?php
-namespace App\softwareskills;
+namespace App\software_skills;
 use App\db\connect;
 use App\getInstance;
 
-class softwareskills extends connect
+class software_skills extends connect
 {
     private $queryPost = 'INSERT INTO software_skills(id,id_team_schedule,id_journey,id_trainer,id_location,id_subject) VALUES(:identificacion,:idteam,:idjpurneys,:idtrainer,:location,:subject)';
     private $queryGetAll = 'SELECT softwareskills.*, team_schedule_software_skiils.team_name AS team_schedule_team_name, journey.name_journey AS journey_name, trainers.id AS trainers_id, locations.name_location AS location_name, subjects.name_subject AS subject_name FROM softwareskills
