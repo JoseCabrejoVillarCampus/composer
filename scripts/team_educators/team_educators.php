@@ -1,4 +1,7 @@
 <?php
+namespace App\team_educators;
+use App\db\connect;
+use App\getInstance;
 class team_educators extends connect
 {
     private $queryPost = 'INSERT INTO team_educators(id,name_rol) VALUES(:identificacion,:namerol)';
@@ -32,7 +35,7 @@ class team_educators extends connect
             $res->execute();
             $res->bindValue("identificacion", 3);
             $res->bindValue("namerol", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {

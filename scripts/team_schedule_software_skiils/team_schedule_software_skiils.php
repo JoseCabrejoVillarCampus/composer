@@ -1,13 +1,18 @@
 <?php
-class team_schedule extends connect
+namespace App\team_schedule_software_skiils;
+use App\db\connect;
+use App\getInstance;
+class team_schedule_software_skiils extends connect
 {
-    private $queryPost = 'INSERT INTO team_schedule(id,team_name,check_in_skills,check_out_skills,check_in_soft,check_out_soft,check_in_english,check_out_english,check_in_review,check_out_review,id_journey) VALUES(:identificacion,:teamname,:checkinskills,:checkoutskills,:checkinsoft,:checkoutsoft,:checkinemglish,:checkoutenglish,:checkinreview,:checkoutreview,:idjpurneys)';
-    private $queryGetAll = 'SELECT team_schedule.id, journeys.name AS journeys_name,  FROM team_schedule, INNER JOIN journeys ON team_schedule.id_journey = journeys.id  WHERE team_schedule.id=:identification ';
-    private $queryUpdate = 'UPDATE team_schedule SET id = :identificacion, team_name = :teamname, check_in_skills = :checkinskills, check_out_skills = :checkoutskills, check_in_soft = :checkinsoft, check_out_soft = :checkoutsoft, check_in_english = :checkinemglish, check_out_english = :checkoutenglish, check_in_review = :checkinreview, check_out_review = :checkoutreview, id_journey = :idjpurneys  WHERE id = :identificacion';
-    private $queryDelete = 'DELETE FROM team_schedule WHERE id = :identificacion';
+    private $queryPost = 'INSERT INTO team_schedule_software_skiils(id,team_name,check_in_skills,check_out_skills,id_journey) VALUES(:identificacion,:teamname,:checkinskills,:checkoutskills,:idjpurneys)';
+    private $queryGetAll = 'SELECT team_schedule_software_skiils.id, journey.name_journey AS journeys_name,  
+    FROM team_schedule_software_skiils 
+    INNER JOIN journeys ON team_schedule.id_journey = journey.id';
+    private $queryUpdate = 'UPDATE team_schedule_software_skiils SET id = :identificacion, team_name = :teamname, check_in_skills = :checkinskills, check_out_skills = :checkoutskills, id_journey = :idjpurneys  WHERE id = :identificacion';
+    private $queryDelete = 'DELETE FROM team_schedule_software_skiils WHERE id = :identificacion';
     private $message;
     use getInstance;
-    function __construct(private $id=1, public $team_name=1, public $check_in_skills=1, public $check_out_skills=1, public $check_in_soft=1, public $check_out_soft=1, public $check_in_english=1, public $check_out_english=1, public $check_in_review=1, public $check_out_review=1, private $id_journey=1)
+    function __construct(private $id=1, public $team_name=1, public $check_in_skills=1, public $check_out_skills=1, private $id_journey=1)
     {
         parent::__construct();
     }
@@ -19,12 +24,6 @@ class team_schedule extends connect
             $res->bindValue("teamname",$this->team_name);
             $res->bindValue("checkinskills",$this->check_in_skills);
             $res->bindValue("checkoutskills",$this->check_out_skills);
-            $res->bindValue("checkinsoft",$this->check_in_soft);
-            $res->bindValue("checkoutsoft",$this->check_out_soft);
-            $res->bindValue("checkinemglish",$this->check_in_english);
-            $res->bindValue("checkoutenglish",$this->check_out_english);
-            $res->bindValue("checkinreview",$this->check_in_review);
-            $res->bindValue("checkoutreview",$this->check_out_review);
             $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200 + $res->rowCount(), "Message" => "inserted data"];
@@ -43,14 +42,8 @@ class team_schedule extends connect
             $res->bindValue("teamname", 1);
             $res->bindValue("checkinskills", 1);
             $res->bindValue("checkoutskills", 1);
-            $res->bindValue("checkinsoft", 1);
-            $res->bindValue("checkoutsoft", 1);
-            $res->bindValue("checkinemglish", 1);
-            $res->bindValue("checkoutenglish", 1);
-            $res->bindValue("checkinreview", 1);
-            $res->bindValue("checkoutreview", 1);
             $res->bindValue("idjpurneys", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {
@@ -66,12 +59,6 @@ class team_schedule extends connect
             $res->bindValue("teamname",$this->team_name);
             $res->bindValue("checkinskills",$this->check_in_skills);
             $res->bindValue("checkoutskills",$this->check_out_skills);
-            $res->bindValue("checkinsoft",$this->check_in_soft);
-            $res->bindValue("checkoutsoft",$this->check_out_soft);
-            $res->bindValue("checkinemglish",$this->check_in_english);
-            $res->bindValue("checkoutenglish",$this->check_out_english);
-            $res->bindValue("checkinreview",$this->check_in_review);
-            $res->bindValue("checkoutreview",$this->check_out_review);
             $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
 
@@ -94,12 +81,6 @@ class team_schedule extends connect
             $res->bindValue("teamname",$this->team_name);
             $res->bindValue("checkinskills",$this->check_in_skills);
             $res->bindValue("checkoutskills",$this->check_out_skills);
-            $res->bindValue("checkinsoft",$this->check_in_soft);
-            $res->bindValue("checkoutsoft",$this->check_out_soft);
-            $res->bindValue("checkinemglish",$this->check_in_english);
-            $res->bindValue("checkoutenglish",$this->check_out_english);
-            $res->bindValue("checkinreview",$this->check_in_review);
-            $res->bindValue("checkoutreview",$this->check_out_review);
             $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];

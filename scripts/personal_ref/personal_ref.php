@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\personal_ref;
+use App\db\connect;
+use App\getInstance;
 class personal_ref extends connect
 {
     private $queryPost = 'INSERT INTO personal_ref(id,full_name,cel_number,relationship,occupation) VALUES(:identificacion,:name,:phone,:relacion,:ocupacion)';

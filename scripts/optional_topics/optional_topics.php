@@ -5,7 +5,7 @@ use App\getInstance;
 class optional_topics extends connect
 {
     private $queryPost = 'INSERT INTO optional_topics(id,id_topic,id_team,id_subject,id_camper,id_team_educator) VALUES(:identificacion,:topic,:team,:subject,:camper,:teameducator)';
-    private $queryGetAll = 'SELECT optional_topics.*, topics.id AS id_topic, teams.name_team AS team_name, journey.name AS journey_name, trainers.name AS trainer_name, locations.name AS location_name, subjects.name AS subject_name 
+    private $queryGetAll = 'SELECT optional_topics.*, topics.id AS id_topic, team_schedule_software_skiils.name_team AS team_name, journey.name AS journey_name, trainers.name AS trainer_name, locations.name AS location_name, subjects.name AS subject_name 
     FROM optional_topics
     INNER JOIN topics ON optional_topics.id_topic = topics.id 
     INNER JOIN team_schedule_software_skiils ON optional_topics.team_schedule_software_skiils = team_schedule_software_skiils.id 

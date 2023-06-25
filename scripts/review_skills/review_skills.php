@@ -1,9 +1,16 @@
 <?php
-namespace App;
+namespace App\review_skills;
+use App\db\connect;
+use App\getInstance;
 class review_skills extends connect
 {
     private $queryPost = 'INSERT INTO review_skills(id,id_team_schedule,id_journey,id_tutor,id_location) VALUES(:identificacion,:team,:journey,:tutor,:locacion)';
-    private $queryGetAll = 'SELECT review_skills.id, team_schedules.name AS team_schedule_name, journeys.name AS journey_name, tutors.name AS tutors_name, locations.name AS location_name FROM review_skills, INNER JOIN team_schedules ON review_skills.id_team_schedule = team_schedules.id INNER JOIN journeys ON review_skills.id_journey = journeys.id INNER JOIN tutors ON review_skills.id_tutor = tutors.id INNER JOIN locations ON review_skills.id_location = locations.id  WHERE review_skills.id=:identification ';
+    private $queryGetAll = 'SELECT review_skills.*, team_schedule_software_skiils.team_name AS team_schedule_name, journey.name_journey AS journey_name, tutors.id AS tutors_id, locations.name_location AS location_name 
+    FROM review_skills 
+    INNER JOIN team_schedule_software_skiils ON review_skills.id_team_schedule = team_schedule_software_skiils.id 
+    INNER JOIN journey ON review_skills.id_journey = journey.id 
+    INNER JOIN tutors ON review_skills.id_tutor = tutors.id 
+    INNER JOIN locations ON review_skills.id_location = locations.id';
     private $queryUpdate = 'UPDATE review_skills SET id = :identificacion, id_team_schedule = :team, id_journey = :journey,id_tutor = :tutor, id_location = :locacion  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM review_skills WHERE id = :identificacion';
     private $message;

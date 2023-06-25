@@ -1,8 +1,12 @@
 <?php
+namespace App\thematic_units;
+use App\db\connect;
+use App\getInstance;
 class thematic_units extends connect
 {
     private $queryPost = 'INSERT INTO thematic_units(id,id_route,name_thematics_units,start_date,end_date,description,duration_days) VALUES(:identificacion,:idroute,:namethemunit,:startdate,:enddate,:descript,:days)';
-    private $queryGetAll = 'SELECT thematic_units.id, routes.name AS routes_name,  FROM thematic_units, INNER JOIN routes ON thematic_units.id_route = routes.id  WHERE thematic_units.id=:identification ';
+    private $queryGetAll = 'SELECT thematic_units.*, routes.name_route AS routes_name,  FROM thematic_units
+    INNER JOIN routes ON thematic_units.id_route = routes.id';
     private $queryUpdate = 'UPDATE thematic_units SET id = :identificacion, id_route = :idroute, name_thematics_units = :namethemunit, start_date = :startdate, end_date = :enddate, description = :descript, duration_days = :days WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM thematic_units WHERE id = :identificacion';
     private $message;
@@ -42,7 +46,7 @@ class thematic_units extends connect
             $res->bindValue("enddate", 1);
             $res->bindValue("descript", 1);
             $res->bindValue("days", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {

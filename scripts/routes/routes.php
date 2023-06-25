@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\routes;
+use App\db\connect;
+use App\getInstance;
 
 class routes extends connect
 {

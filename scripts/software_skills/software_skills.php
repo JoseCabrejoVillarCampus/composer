@@ -1,10 +1,17 @@
 <?php
-namespace App;
+namespace App\softwareskills;
+use App\db\connect;
+use App\getInstance;
 
 class softwareskills extends connect
 {
     private $queryPost = 'INSERT INTO software_skills(id,id_team_schedule,id_journey,id_trainer,id_location,id_subject) VALUES(:identificacion,:idteam,:idjpurneys,:idtrainer,:location,:subject)';
-    private $queryGetAll = 'SELECT softwareskills.id, team_schedules.name AS team_schedule_name, journeys.name AS journey_name, trainers.name AS trainers_name, locations.name AS location_name, subjects.name AS subject_name FROM softwareskills, INNER JOIN team_schedules ON softwareskills.id_team_schedule = team_schedules.id INNER JOIN journeys ON softwareskills.id_journey = journeys.id INNER JOIN trainers ON softwareskills.id_trainer = trainers.id INNER JOIN locations ON softwareskills.id_location = locations.id INNER JOIN subjects ON softwareskills.id_subject = subjects.id WHERE softwareskills.id=:identification ';
+    private $queryGetAll = 'SELECT softwareskills.*, team_schedule_software_skiils.team_name AS team_schedule_team_name, journey.name_journey AS journey_name, trainers.id AS trainers_id, locations.name_location AS location_name, subjects.name_subject AS subject_name FROM softwareskills
+    INNER JOIN team_schedule_software_skiils ON softwareskills.id_team_schedule = team_schedule_software_skiils.id 
+    INNER JOIN journey ON softwareskills.id_journey = journey.id 
+    INNER JOIN trainers ON softwareskills.id_trainer = trainers.id 
+    INNER JOIN locations ON softwareskills.id_location = locations.id 
+    INNER JOIN subjects ON softwareskills.id_subject = subjects.id';
     private $queryUpdate = 'UPDATE software_skills SET id = :identificacion, id_team_schedule = :idteam, id_journey = :idjpurneys,id_trainer = :idtrainer, id_location = :location, id_subject = :subject  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM software_skills WHERE id = :identificacion';
     private $message;

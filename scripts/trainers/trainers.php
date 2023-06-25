@@ -1,8 +1,18 @@
 <?php
+namespace App\trainers;
+use App\db\connect;
+use App\getInstance;
 class trainers extends connect
 {
     private $queryPost = 'INSERT INTO trainers(id,id_staff,id_level,id_route,id_academic_area,id_position,id_team_educator) VALUES(:identificacion,:idstaff,:idlvl,:idroute,:idacademicarea,:posicion,:teameducator)';
-    private $queryGetAll = 'SELECT trainers.id, staff.name AS staff_name, levels.name AS levels_name, routes.name AS routes_name, academic_area.name AS academic_area_name, position.name AS position_name, team_educators.name AS team_educators_name FROM trainers, INNER JOIN staff ON trainers.id_staff = staff.id INNER JOIN levels ON trainers.id_level = levels.id INNER JOIN routes ON trainers.id_route = routes.id INNER JOIN academic_area ON trainers.id_academic_area = academic_area.id INNER JOIN position ON trainers.id_position = position.id INNER JOIN team_educators ON trainers.id_team_educator = team_educator.id WHERE trainers.id=:identification ';
+    private $queryGetAll = 'SELECT trainers.id, staff.first_name AS staff_name, levels.name_level AS levels_name, routes.name_route AS routes_name, academic_area.id AS academic_area_name, position.name_position AS position_name, team_educators.name_rol AS team_educators_name 
+    FROM trainers 
+    INNER JOIN staff ON trainers.id_staff = staff.id 
+    INNER JOIN levels ON trainers.id_level = levels.id 
+    INNER JOIN routes ON trainers.id_route = routes.id 
+    INNER JOIN academic_area ON trainers.id_academic_area = academic_area.id 
+    INNER JOIN position ON trainers.id_position = position.id 
+    INNER JOIN team_educators ON trainers.id_team_educator = team_educator.id';
     private $queryUpdate = 'UPDATE trainers SET id = :identificacion, id_staff = :idstaff, id_level = :idlvl, id_route = :idroute, id_academic_area = :idacademicarea, id_position = :posicion, id_team_educator = :teameducator WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM trainers WHERE id = :identificacion';
     private $message;
@@ -42,7 +52,7 @@ class trainers extends connect
             $res->bindValue("idacademicarea", 1);
             $res->bindValue("posicion", 1);
             $res->bindValue("teameducator", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {

@@ -1,8 +1,13 @@
 <?php
+namespace App\themes;
+use App\db\connect;
+use App\getInstance;
 class themes extends connect
 {
     private $queryPost = 'INSERT INTO themes(id,id_chapter,name_theme,start_date,end_date,description,duration_days) VALUES(:identificacion,:idchapter,:namethem,:startdate,:enddate,:descript,:days)';
-    private $queryGetAll = 'SELECT themes.id, chapters.name AS chapters_name,  FROM themes, INNER JOIN chapters ON themes.id_chapter = chapters.id  WHERE themes.id=:identification ';
+    private $queryGetAll = 'SELECT themes.id, chapters.name_chapter AS chapters_name,  
+    FROM themes 
+    INNER JOIN chapters ON themes.id_chapter = chapters.id  WHERE themes.id=:identification ';
     private $queryUpdate = 'UPDATE themes SET id = :identificacion, id_chapter = :idchapter, name_theme = :namethem, start_date = :startdate, end_date = :enddate, description = :descript, duration_days = :days WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM themes WHERE id = :identificacion';
     private $message;
@@ -42,7 +47,7 @@ class themes extends connect
             $res->bindValue("enddate", 1);
             $res->bindValue("descript", 1);
             $res->bindValue("days", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(PDO::FETCH_ASSOC)];
+            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
         } finally {

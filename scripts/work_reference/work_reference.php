@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\work_reference;
+use App\db\connect;
+use App\getInstance;
 
 class work_reference extends connect
 {

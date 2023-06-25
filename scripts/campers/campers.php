@@ -5,7 +5,7 @@ use App\getInstance;
 class campers extends connect
 {
     private $queryPost = 'INSERT INTO campers(id,id_team_schedule,id_route,id_trainer,id_psycologist,id_teacher,id_level,id_journey,id_staff) VALUES(:identificacion,:idteam,:idrout,:idtrainer,:idpsy,:idteacher, :idlvl, :idjourney, :idstaff)';
-    private $queryGetAll = 'SELECT campers.*, team_schedule_software_skiils.team_name AS team_schedule_team_name, routes.name_route AS name_route, trainers.id AS trainers_id, psychologist.id AS psychologist_id, teachers.id AS teachers_id, levels.name_level AS name_level, journey.name_journey AS journey_name 
+    private $queryGetAll = 'SELECT campers.*, team_schedule_software_skiils.team_name AS team_schedule_team_name, routes.name_route AS name_route, trainers.id AS trainers_id, psychologist.id AS psychologist_id, teachers.id AS teachers_id, levels.name_level AS name_level, journey.name_journey AS journey_name, staff.first_name AS staff_name 
     FROM campers 
     INNER JOIN team_schedule_software_skiils ON campers.id_team_schedule = team_schedule_software_skiils.id 
     INNER JOIN routes ON campers.id_route = routes.id 

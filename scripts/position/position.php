@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\position;
+use App\db\connect;
+use App\getInstance;
 class position extends connect
 {
     private $queryPost = 'INSERT INTO position(id,name_position,arl) VALUES(:identificacion,:posicion,:_arl)';
