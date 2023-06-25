@@ -292,6 +292,21 @@
     $router->post('/api/personal_ref/del', function(){
         \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->deletePersonalRef();
     });
+    /*
+    ?rutas  position
+    */
+    $router->get('/api/position', function(){
+        \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->getAllPosition();
+    });
+    $router->post('/api/position/post', function(){
+        \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->postPosition();
+    });
+    $router->post('/api/position/put', function(){
+        \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->putPosition();
+    });
+    $router->post('/api/position/del', function(){
+        \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->deletePosition();
+    });
     $router->run();
 
 ?>
