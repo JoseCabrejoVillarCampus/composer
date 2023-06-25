@@ -19,10 +19,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/academic_area/post', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->postOptionalTopics();
     });
-    $router->post('/api/academic_area/put', function(){
+    $router->put('/api/academic_area/put', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->putOptionalTopics();
     });
-    $router->post('/api/academic_area/del', function(){
+    $router->delete('/api/academic_area/del', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteOptionalTopics();
     });
     /*
@@ -34,10 +34,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/admin_area/post', function(){
         \App\admin_area\admin_area::getInstance(json_decode(file_get_contents("php://input"),true))->postAdminArea();
     });
-    $router->post('/api/admin_area/put', function(){
+    $router->put('/api/admin_area/put', function(){
         \App\admin_area\admin_area::getInstance(json_decode(file_get_contents("php://input"),true))->putAdminArea();
     });
-    $router->post('/api/admin_area/del', function(){
+    $router->delete('/api/admin_area/del', function(){
         \App\admin_area\admin_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteAdminArea();
     });
     /*
@@ -49,10 +49,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/areas/post', function(){
         \App\areas\areas::getInstance(json_decode(file_get_contents("php://input"),true))->postAreas();
     });
-    $router->post('/api/areas/put', function(){
+    $router->put('/api/areas/put', function(){
         \App\areas\areas::getInstance(json_decode(file_get_contents("php://input"),true))->putAdminArea();
     });
-    $router->post('/api/areas/del', function(){
+    $router->delete('/api/areas/del', function(){
         \App\areas\areas::getInstance(json_decode(file_get_contents("php://input"),true))->deleteAreas();
     });
     /*
@@ -64,10 +64,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/campers/post', function(){
         \App\campers\campers::getInstance(json_decode(file_get_contents("php://input"),true))->postCamper();
     });
-    $router->post('/api/campers/put', function(){
+    $router->put('/api/campers/put', function(){
         \App\campers\campers::getInstance(json_decode(file_get_contents("php://input"),true))->putCamper();
     });
-    $router->post('/api/campers/del', function(){
+    $router->delete('/api/campers/del', function(){
         \App\campers\campers::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCamper();
     });
     /*
@@ -79,10 +79,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/chapters/post', function(){
         \App\chapters\chapters::getInstance(json_decode(file_get_contents("php://input"),true))->postChapters();
     });
-    $router->post('/api/chapters/put', function(){
+    $router->put('/api/chapters/put', function(){
         \App\chapters\chapters::getInstance(json_decode(file_get_contents("php://input"),true))->putChapters();
     });
-    $router->post('/api/chapters/del', function(){
+    $router->delete('/api/chapters/del', function(){
         \App\chapters\chapters::getInstance(json_decode(file_get_contents("php://input"),true))->deleteChapters();
     });
     /*
@@ -94,10 +94,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/cities/post', function(){
         \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->postCities();
     });
-    $router->post('/api/cities/put', function(){
+    $router->put('/api/cities/put', function(){
         \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->putCities();
     });
-    $router->post('/api/cities/del', function(){
+    $router->delete('/api/cities/del', function(){
         \App\cities\cities::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCities();
     });
     /*
@@ -109,10 +109,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/contact_info/post', function(){
         \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->postContacInfo();
     });
-    $router->post('/api/contact_info/put', function(){
+    $router->put('/api/contact_info/put', function(){
         \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->putContacInfo();
     });
-    $router->post('/api/contact_info/del', function(){
+    $router->delete('/api/contact_info/del', function(){
         \App\contact_info\contact_info::getInstance(json_decode(file_get_contents("php://input"),true))->deleteContacInfo();
     });
     /*
@@ -124,10 +124,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/countries/post', function(){
         \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->postCountries();
     });
-    $router->post('/api/countries/put', function(){
+    $router->put('/api/countries/put', function(){
         \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->putCountries();
     });
-    $router->post('/api/countries/del', function(){
+    $router->delete('/api/countries/del', function(){
         \App\countries\countries::getInstance(json_decode(file_get_contents("php://input"),true))->deleteCountries();
     });
     /*
@@ -139,10 +139,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/design_area/post', function(){
         \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->postDesignArea();
     });
-    $router->post('/api/design_area/put', function(){
+    $router->put('/api/design_area/put', function(){
         \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->putDesignArea();
     });
-    $router->post('/api/design_area/del', function(){
+    $router->delete('/api/design_area/del', function(){
         \App\design_area\design_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteDesignArea();
     });
     /*
@@ -154,10 +154,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/emergency_contact/post', function(){
         \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->postEmergencyContact();
     });
-    $router->post('/api/emergency_contact/put', function(){
+    $router->put('/api/emergency_contact/put', function(){
         \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->putEmergencyContact();
     });
-    $router->post('/api/emergency_contact/del', function(){
+    $router->delete('/api/emergency_contact/del', function(){
         \App\emergency_contact\emergency_contact::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEmergencyContact();
     });
     /*
@@ -169,10 +169,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/english_skills/post', function(){
         \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postEnglishSkills();
     });
-    $router->post('/api/english_skills/put', function(){
+    $router->put('/api/english_skills/put', function(){
         \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putEnglishSkills();
     });
-    $router->post('/api/english_skills/del', function(){
+    $router->delete('/api/english_skills/del', function(){
         \App\english_skills\english_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteEnglishSkills();
     });
     /*
@@ -184,10 +184,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/journey/post', function(){
         \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->postJourney();
     });
-    $router->post('/api/journey/put', function(){
+    $router->put('/api/journey/put', function(){
         \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->putJourney();
     });
-    $router->post('/api/journey/del', function(){
+    $router->delete('/api/journey/del', function(){
         \App\journey\journey::getInstance(json_decode(file_get_contents("php://input"),true))->deleteJourney();
     });
     /*
@@ -199,10 +199,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/levels/post', function(){
         \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->postLevels();
     });
-    $router->post('/api/levels/put', function(){
+    $router->put('/api/levels/put', function(){
         \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->putLevels();
     });
-    $router->post('/api/levels/del', function(){
+    $router->delete('/api/levels/del', function(){
         \App\levels\levels::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLevels();
     });
     /*
@@ -214,10 +214,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/locations/post', function(){
         \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->postLocation();
     });
-    $router->post('/api/locations/put', function(){
+    $router->put('/api/locations/put', function(){
         \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->putLocation();
     });
-    $router->post('/api/locations/del', function(){
+    $router->delete('/api/locations/del', function(){
         \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLocation();
     });
     /*
@@ -229,10 +229,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/maint_area/post', function(){
         \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->postMaintArea();
     });
-    $router->post('/api/maint_area/put', function(){
+    $router->put('/api/maint_area/put', function(){
         \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->putMaintArea();
     });
-    $router->post('/api/maint_area/del', function(){
+    $router->delete('/api/maint_area/del', function(){
         \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteMaintArea();
     });
     /*
@@ -244,10 +244,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/marketing_area/post', function(){
         \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->postMarketingArea();
     });
-    $router->post('/api/marketing_area/put', function(){
+    $router->put('/api/marketing_area/put', function(){
         \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->putMarketingArea();
     });
-    $router->post('/api/marketing_area/del', function(){
+    $router->delete('/api/marketing_area/del', function(){
         \App\marketing_area\marketing_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteMarketingArea();
     });
     /*
@@ -259,10 +259,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/modules/post', function(){
         \App\modules\modules::getInstance(json_decode(file_get_contents("php://input"),true))->postModules();
     });
-    $router->post('/api/modules/put', function(){
+    $router->put('/api/modules/put', function(){
         \App\modules\modules::getInstance(json_decode(file_get_contents("php://input"),true))->putModules();
     });
-    $router->post('/api/modules/del', function(){
+    $router->delete('/api/modules/del', function(){
         \App\modules\modules::getInstance(json_decode(file_get_contents("php://input"),true))->deleteModules();
     });
     /*
@@ -274,10 +274,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/optional_topics/post', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->postOptionalTopics();
     });
-    $router->post('/api/optional_topics/put', function(){
+    $router->put('/api/optional_topics/put', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->putOptionalTopics();
     });
-    $router->post('/api/optional_topics/del', function(){
+    $router->delete('/api/optional_topics/del', function(){
         \App\optional_topics\optional_topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteOptionalTopics();
     });
     /*
@@ -289,10 +289,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/personal_ref/post', function(){
         \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->postPersonalRef();
     });
-    $router->post('/api/personal_ref/put', function(){
+    $router->put('/api/personal_ref/put', function(){
         \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->putPersonalRef();
     });
-    $router->post('/api/personal_ref/del', function(){
+    $router->delete('/api/personal_ref/del', function(){
         \App\personal_ref\personal_ref::getInstance(json_decode(file_get_contents("php://input"),true))->deletePersonalRef();
     });
     /*
@@ -304,10 +304,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/position/post', function(){
         \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->postPosition();
     });
-    $router->post('/api/position/put', function(){
+    $router->put('/api/position/put', function(){
         \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->putPosition();
     });
-    $router->post('/api/position/del', function(){
+    $router->delete('/api/position/del', function(){
         \App\position\position::getInstance(json_decode(file_get_contents("php://input"),true))->deletePosition();
     });
     /*
@@ -319,10 +319,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/psychologist/post', function(){
         \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->postPsychologist();
     });
-    $router->post('/api/psychologist/put', function(){
+    $router->put('/api/psychologist/put', function(){
         \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->putPsychologist();
     });
-    $router->post('/api/psychologist/del', function(){
+    $router->delete('/api/psychologist/del', function(){
         \App\psychologist\psychologist::getInstance(json_decode(file_get_contents("php://input"),true))->deletePsychologist();
     });
     /*
@@ -334,10 +334,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/regions/post', function(){
         \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->postRegions();
     });
-    $router->post('/api/regions/put', function(){
+    $router->put('/api/regions/put', function(){
         \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->putRegions();
     });
-    $router->post('/api/regions/del', function(){
+    $router->delete('/api/regions/del', function(){
         \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRegions();
     });
     /*
@@ -349,10 +349,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/review_skills/post', function(){
         \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postReviewSkills();
     });
-    $router->post('/api/review_skills/put', function(){
+    $router->put('/api/review_skills/put', function(){
         \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putReviewSkills();
     });
-    $router->post('/api/review_skills/del', function(){
+    $router->delete('/api/review_skills/del', function(){
         \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteReviewSkills();
     });
     /*
@@ -364,10 +364,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/routes/post', function(){
         \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->postRoutes();
     });
-    $router->post('/api/routes/put', function(){
+    $router->put('/api/routes/put', function(){
         \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->putRoutes();
     });
-    $router->post('/api/routes/del', function(){
+    $router->delete('/api/routes/del', function(){
         \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRoutes();
     });
     /*
@@ -379,10 +379,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/soft_skills/post', function(){
         \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postSoftSkill();
     });
-    $router->post('/api/soft_skills/put', function(){
+    $router->put('/api/soft_skills/put', function(){
         \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putSoftSkill();
     });
-    $router->post('/api/soft_skills/del', function(){
+    $router->delete('/api/soft_skills/del', function(){
         \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftSkill();
     });
     /*
@@ -394,10 +394,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/software_skills/post', function(){
         \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postSoftwareSkill();
     });
-    $router->post('/api/software_skills/put', function(){
+    $router->put('/api/software_skills/put', function(){
         \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putSoftwareSkill();
     });
-    $router->post('/api/software_skills/del', function(){
+    $router->delete('/api/software_skills/del', function(){
         \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftwareSkill();
     });
     /*
@@ -409,10 +409,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/staff/post', function(){
         \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->postStaff();
     });
-    $router->post('/api/staff/put', function(){
+    $router->put('/api/staff/put', function(){
         \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->putStaff();
     });
-    $router->post('/api/staff/del', function(){
+    $router->delete('/api/staff/del', function(){
         \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->deleteStaff();
     });
     /*
@@ -424,10 +424,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/subjects/post', function(){
         \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->postSubjects();
     });
-    $router->post('/api/subjects/put', function(){
+    $router->put('/api/subjects/put', function(){
         \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->putSubjects();
     });
-    $router->post('/api/subjects/del', function(){
+    $router->delete('/api/subjects/del', function(){
         \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSubjects();
     });
     /*
@@ -439,10 +439,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/teachers/post', function(){
         \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->postTeachers();
     });
-    $router->post('/api/teachers/put', function(){
+    $router->put('/api/teachers/put', function(){
         \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->putTeachers();
     });
-    $router->post('/api/teachers/del', function(){
+    $router->delete('/api/teachers/del', function(){
         \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeachers();
     });
     /*
@@ -454,10 +454,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/team_educators/post', function(){
         \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamEducators();
     });
-    $router->post('/api/team_educators/put', function(){
+    $router->put('/api/team_educators/put', function(){
         \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamEducators();
     });
-    $router->post('/api/team_educators/del', function(){
+    $router->delete('/api/team_educators/del', function(){
         \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamEducators();
     });
     /*
@@ -469,10 +469,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/team_schedule_english/post', function(){
         \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamScheduleEnglish();
     });
-    $router->post('/api/team_schedule_english/put', function(){
+    $router->put('/api/team_schedule_english/put', function(){
         \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamScheduleEnglish();
     });
-    $router->post('/api/team_schedule_english/del', function(){
+    $router->delete('/api/team_schedule_english/del', function(){
         \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamScheduleEnglish();
     });
     /*
@@ -484,10 +484,10 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->post('/api/team_schedule_review/post', function(){
         \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamScheduleReview();
     });
-    $router->post('/api/team_schedule_review/put', function(){
+    $router->put('/api/team_schedule_review/put', function(){
         \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamScheduleReview();
     });
-    $router->post('/api/team_schedule_review/del', function(){
+    $router->delete('/api/team_schedule_review/del', function(){
         \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamScheduleReview();
     });
     /*
@@ -497,13 +497,13 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
         \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
     });
     $router->post('/api/team_schedule_soft_skils/post', function(){
-        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamScheduleSoft();
     });
-    $router->post('/api/team_schedule_soft_skils/put', function(){
-        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    $router->put('/api/team_schedule_soft_skils/put', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamScheduleSoft();
     });
-    $router->post('/api/team_schedule_soft_skils/del', function(){
-        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    $router->delete('/api/team_schedule_soft_skils/del', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamScheduleSoft();
     });
     /*
     ?rutas  team_schedule_software_skiils
@@ -512,14 +512,45 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
         \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
     });
     $router->post('/api/team_schedule_software_skiils/post', function(){
-        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamSchedule();
     });
-    $router->post('/api/team_schedule_software_skiils/put', function(){
-        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    $router->put('/api/team_schedule_software_skiils/put', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamSchedule();
     });
-    $router->post('/api/team_schedule_software_skiils/del', function(){
-        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    $router->delete('/api/team_schedule_software_skiils/del', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamSchedule();
     });
+    /*
+    ?rutas  thematic_units
+    */
+    $router->get('/api/thematic_units', function(){
+        \App\thematic_units\thematic_units::getInstance(json_decode(file_get_contents("php://input"),true))->getAllThematicUnits();
+    });
+    $router->post('/api/thematic_units/post', function(){
+        \App\thematic_units\thematic_units::getInstance(json_decode(file_get_contents("php://input"),true))->postThematicUnits();
+    });
+    $router->put('/api/thematic_units/put', function(){
+        \App\thematic_units\thematic_units::getInstance(json_decode(file_get_contents("php://input"),true))->putThematicUnits();
+    });
+    $router->delete('/api/thematic_units/del', function(){
+        \App\thematic_units\thematic_units::getInstance(json_decode(file_get_contents("php://input"),true))->deleteThematicUnits();
+    });
+    /*
+    ?rutas  themes
+    */
+    $router->get('/api/themes', function(){
+        \App\themes\themes::getInstance(json_decode(file_get_contents("php://input"),true))->getAllThems();
+    });
+    $router->post('/api/themes/post', function(){
+        \App\themes\themes::getInstance(json_decode(file_get_contents("php://input"),true))->postThems();
+    });
+    $router->put('/api/themes/put', function(){
+        \App\themes\themes::getInstance(json_decode(file_get_contents("php://input"),true))->putThems();
+    });
+    $router->delete('/api/themes/del', function(){
+        \App\themes\themes::getInstance(json_decode(file_get_contents("php://input"),true))->deleteThems();
+    });
+    
     $router->run(); 
 
 ?>
