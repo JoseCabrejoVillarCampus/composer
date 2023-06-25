@@ -565,6 +565,21 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->delete('/api/topics/del', function(){
         \App\topics\topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTopics();
     });
+    /*
+    ?rutas  trainers
+    */
+    $router->get('/api/trainers', function(){
+        \App\trainers\trainers::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTrainers();
+    });
+    $router->post('/api/trainers/post', function(){
+        \App\trainers\trainers::getInstance(json_decode(file_get_contents("php://input"),true))->postTrainers();
+    });
+    $router->put('/api/trainers/put', function(){
+        \App\trainers\trainers::getInstance(json_decode(file_get_contents("php://input"),true))->putTrainers();
+    });
+    $router->delete('/api/trainers/del', function(){
+        \App\trainers\trainers::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTrainers();
+    });
     $router->run(); 
 
 ?>
