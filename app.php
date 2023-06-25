@@ -550,7 +550,21 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->delete('/api/themes/del', function(){
         \App\themes\themes::getInstance(json_decode(file_get_contents("php://input"),true))->deleteThems();
     });
-    
+    /*
+    ?rutas  topics
+    */
+    $router->get('/api/topics', function(){
+        \App\topics\topics::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTopics();
+    });
+    $router->post('/api/topics/post', function(){
+        \App\topics\topics::getInstance(json_decode(file_get_contents("php://input"),true))->postTopics();
+    });
+    $router->put('/api/topics/put', function(){
+        \App\topics\topics::getInstance(json_decode(file_get_contents("php://input"),true))->putTopics();
+    });
+    $router->delete('/api/topics/del', function(){
+        \App\topics\topics::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTopics();
+    });
     $router->run(); 
 
 ?>
