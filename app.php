@@ -595,6 +595,21 @@ use App\team_schedule_soft_skils\team_schedule_software_skiils;
     $router->delete('/api/tutors/del', function(){
         \App\tutors\tutors::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTutors();
     });
+    /*
+    ?rutas  work_reference
+    */
+    $router->get('/api/work_reference', function(){
+        \App\work_reference\work_reference::getInstance(json_decode(file_get_contents("php://input"),true))->getAllWorkRef();
+    });
+    $router->post('/api/work_reference/post', function(){
+        \App\work_reference\work_reference::getInstance(json_decode(file_get_contents("php://input"),true))->postWorkRef();
+    });
+    $router->put('/api/work_reference/put', function(){
+        \App\work_reference\work_reference::getInstance(json_decode(file_get_contents("php://input"),true))->putWorkRef();
+    });
+    $router->delete('/api/work_reference/del', function(){
+        \App\work_reference\work_reference::getInstance(json_decode(file_get_contents("php://input"),true))->deleteWorkRef();
+    });
     $router->run(); 
 
 ?>
