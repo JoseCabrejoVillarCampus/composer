@@ -5,7 +5,8 @@ use App\getInstance;
 class thematic_units extends connect
 {
     private $queryPost = 'INSERT INTO thematic_units(id,id_route,name_thematics_units,start_date,end_date,description,duration_days) VALUES(:identificacion,:idroute,:namethemunit,:startdate,:enddate,:descript,:days)';
-    private $queryGetAll = 'SELECT thematic_units.*, routes.name_route AS routes_name,  FROM thematic_units
+    private $queryGetAll = 'SELECT thematic_units.*, routes.name_route AS routes_name  
+    FROM thematic_units
     INNER JOIN routes ON thematic_units.id_route = routes.id';
     private $queryUpdate = 'UPDATE thematic_units SET id = :identificacion, id_route = :idroute, name_thematics_units = :namethemunit, start_date = :startdate, end_date = :enddate, description = :descript, duration_days = :days WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM thematic_units WHERE id = :identificacion';

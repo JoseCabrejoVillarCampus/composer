@@ -1,16 +1,16 @@
 <?php
-namespace App\team_schedule_english;
+namespace App\team_schedules_english;
 use App\db\connect;
 use App\getInstance;
-class team_schedule_english extends connect
+class team_schedules_english extends connect
 {
-    private $queryPost = 'INSERT INTO team_schedule_english(id,team_name,check_in_english,check_out_english,id_journey) VALUES(:identificacion,:teamname,:checkinenglish,:checkoutenglish,:idjpurneys)';
-    private $queryGetAll = 'SELECT team_schedule_english.id, journeys.name_journey AS journey_name,  
-    FROM team_schedule_english 
-    INNER JOIN journey ON team_schedule.id_journey = journey.id';
-    private $queryUpdate = 'UPDATE team_schedule_english SET id = :identificacion, team_name = :teamname, check_in_english = :checkinenglish
+    private $queryPost = 'INSERT INTO team_schedules_english(id,team_name,check_in_english,check_out_english,id_journey) VALUES(:identificacion,:teamname,:checkinenglish,:checkoutenglish,:idjpurneys)';
+    private $queryGetAll = 'SELECT team_schedules_english.id, journeys.name_journey AS journey_name,  
+    FROM team_schedules_english 
+    INNER JOIN journey ON team_schedules_english.id_journey = journey.id';
+    private $queryUpdate = 'UPDATE team_schedules_english SET id = :identificacion, team_name = :teamname, check_in_english = :checkinenglish
     , check_out_english = :checkoutenglish, id_journey = :idjpurneys  WHERE id = :identificacion';
-    private $queryDelete = 'DELETE FROM team_schedule_english WHERE id = :identificacion';
+    private $queryDelete = 'DELETE FROM team_schedules_english WHERE id = :identificacion';
     private $message;
     use getInstance;
     function __construct(private $id=1, public $team_name=1, public $check_in_review=1, public $check_out_review=1, private $id_journey=1)

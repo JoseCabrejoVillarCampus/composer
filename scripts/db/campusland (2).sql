@@ -20,23 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `campusland`
 --
-USE campusland;
-SELECT * FROM admin_area;
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `academic_area`
 --
-
-ALTER TABLE psychologist CHANGE id_academic_area_psycologist id_area int NOT NULL;
-
+CREATE DATABASE campusland;
+USE campusland;
+SELECT * FROM team_schedule_review;
 
 CREATE TABLE `academic_area` (
   `id` int NOT NULL,
   `id_area` int NOT NULL,
   `id_staff` int NOT NULL,
   `id_position` int NOT NULL,
-  `id_journeys` int NOT NULL
+  `id_journey` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -188,7 +187,7 @@ CREATE TABLE `english_skills` (
 -- Estructura de tabla para la tabla `journey`
 --
 
-CREATE TABLE `academic_area` (
+CREATE TABLE `journey` (
   `id` int NOT NULL,
   `name_journey` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `check_in` time NOT NULL,
@@ -392,7 +391,7 @@ CREATE TABLE `soft_skills` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `areas`
+-- Estructura de tabla para la tabla `staff`
 --
 
 CREATE TABLE `staff` (
@@ -584,7 +583,7 @@ ALTER TABLE `academic_area`
   ADD KEY `id_academic_area` (`id_area`),
   ADD KEY `id_staff_academic` (`id_staff`),
   ADD KEY `id_position_academic` (`id_position`),
-  ADD KEY `id_journey_academic` (`id_journeys`);
+  ADD KEY `id_journey_academic` (`id_journey`);
 
 --
 -- Indices de la tabla `admin_area`
@@ -1127,7 +1126,7 @@ ALTER TABLE `work_reference`
 --
 ALTER TABLE `academic_area`
   ADD CONSTRAINT `id_academic_area` FOREIGN KEY (`id_area`) REFERENCES `areas` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `id_journey_academic` FOREIGN KEY (`id_journeys`) REFERENCES `journey` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_journey_academic` FOREIGN KEY (`id_journey`) REFERENCES `journey` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   ADD CONSTRAINT `id_position_academic` FOREIGN KEY (`id_position`) REFERENCES `position` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   ADD CONSTRAINT `id_staff_academic` FOREIGN KEY (`id_staff`) REFERENCES `staff` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 

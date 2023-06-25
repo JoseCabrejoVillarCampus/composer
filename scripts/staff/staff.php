@@ -8,7 +8,7 @@ class staff extends connect
     private $queryPost = 'INSERT INTO staff(id,doc,first_name,second_name,first_surname,second_surname,eps,id_area,id_city) VALUES(:identificacion,:document,:firstname,:secondname,:firstsurname,:secondsurname,:eps_,:idarea,:idcity)';
     private $queryGetAll = 'SELECT staff.id, areas.name_area AS areas_name, cities.name_city AS cities_name 
     FROM staff 
-    INNER JOIN areas ON staff.id_area = area.id 
+    INNER JOIN areas ON staff.id_area = areas.id 
     INNER JOIN cities ON staff.id_city = cities.id';
     private $queryUpdate = 'UPDATE staff SET id = :identificacion, doc = :document, first_name = :firstname,second_name = :secondname, first_surname = :firstsurname, second_surname = :secondsurname,eps = :eps_, id_area = :idarea, id_city = :idcity  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM staff WHERE id = :identificacion';

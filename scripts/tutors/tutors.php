@@ -5,9 +5,10 @@ use App\getInstance;
 class tutors extends connect
 {
     private $queryPost = 'INSERT INTO tutors(id,id_staff,id_academic_area,id_position) VALUES(:identificacion,:idstaff,:idacademicarea,:posicion)';
-    private $queryGetAll = 'SELECT tutors.id, staff.first_name AS staff_name, academic_area.id AS academic_area_name, position.name_position AS position_name FROM tutors 
+    private $queryGetAll = 'SELECT tutors.id, staff.first_name AS staff_name, academic_area.id AS id_academic_area, position.name_position AS position_name FROM tutors 
     INNER JOIN staff ON tutors.id_staff = staff.id 
-    INNER JOIN academic_area ON soft_skills.id_academic_area = academic_area.id INNER JOIN position ON tutors.id_position = position.id';
+    INNER JOIN academic_area ON tutors.id_academic_area = academic_area.id 
+    INNER JOIN position ON tutors.id_position = position.id';
     private $queryUpdate = 'UPDATE tutors SET id = :identificacion, id_staff = :idstaff, id_academic_area = :idacademicarea, id_position = :posicion WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM tutors WHERE id = :identificacion';
     private $message;

@@ -7,7 +7,7 @@ class team_schedule_soft_skils extends connect
     private $queryPost = 'INSERT INTO team_schedule_soft_skils(id,team_name,check_in_soft,check_out_soft,id_journey) VALUES(:identificacion,:teamname,:checkinsoft,:checkoutsoft,:idjpurneys)';
     private $queryGetAll = 'SELECT team_schedule_soft_skils.id, journeys.name_journey AS journey_name,  
     FROM team_schedule_soft_skils 
-    INNER JOIN journey ON team_schedule.id_journey = journey.id';
+    INNER JOIN journey ON team_schedule_soft_skils.id_journey = journey.id';
     private $queryUpdate = 'UPDATE team_schedule_soft_skils SET id = :identificacion, team_name = :teamname, check_in_soft = :checkinsoft
     , check_out_soft = :checkoutsoft, id_journey = :idjpurneys  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM team_schedule_soft_skils WHERE id = :identificacion';

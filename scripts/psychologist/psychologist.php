@@ -4,14 +4,14 @@ use App\db\connect;
 use App\getInstance;
 class psychologist extends connect
 {
-    private $queryPost = 'INSERT INTO psychologist(id,id_staff,id_route,id_academic_area_psycologist,id_position,id_team_educator) VALUES(:identificacion,:idstaff,:idrout,:areapsyco,:posicion,:teameducator)';
-    private $queryGetAll = 'SELECT psychologist.*, staff.first_name AS staff_name, routes.name AS routes_name, academic_area.name AS academic_area_name, position.name AS position_name, team_educators.name AS team_educators_name 
+    private $queryPost = 'INSERT INTO psychologist(id,id_staff,id_route,id_area,id_position,id_team_educator) VALUES(:identificacion,:idstaff,:idrout,:areapsyco,:posicion,:teameducator)';
+    private $queryGetAll = 'SELECT psychologist.*, staff.first_name AS staff_name, routes.name_route AS route_name, academic_area.id_area AS area_id, position.name_position AS position_name, team_educators.name_rol AS team_educators_name 
     FROM psychologist 
-    INNER JOIN satff ON psychologist.id_staff = staff.id 
-    INNER JOIN routes ON psychologist.id_route = route.id 
-    INNER JOIN academic_area ON psychologist.id_academic_area_psycologist = academic_area_psycologist.id 
+    INNER JOIN staff ON psychologist.id_staff = staff.id 
+    INNER JOIN routes ON psychologist.id_route = routes.id 
+    INNER JOIN academic_area ON psychologist.id_area = academic_area.id 
     INNER JOIN position ON psychologist.id_position = position.id 
-    INNER JOIN team_educators ON psychologist.id_team_educators = team_educators.id';
+    INNER JOIN team_educators ON psychologist.id_team_educator = team_educators.id';
     private $queryUpdate = 'UPDATE psychologist SET id = :identificacion, id_staff = :idstaff, id_route = :idrout,id_academic_area_psycologist = :areapsyco, id_position = :posicion, id_team_educator = :teameducator  WHERE id = :identificacion';
     private $queryDelete = 'DELETE FROM psychologist WHERE id = :identificacion';
     private $message;

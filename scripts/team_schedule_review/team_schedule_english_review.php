@@ -1,16 +1,15 @@
 <?php
-namespace App\team_schedule_review;
+namespace App\team_schedules_review;
 use App\db\connect;
 use App\getInstance;
-class team_schedule_review extends connect
+class team_schedules_review extends connect
 {
-    private $queryPost = 'INSERT INTO team_schedule_review(id,team_name,check_in_review,check_out_review,id_journey) VALUES(:identificacion,:teamname,:checkinreview,:checkoutreview,:idjpurneys)';
-    private $queryGetAll = 'SELECT team_schedule_review.id, journeys.name_journey AS journey_name,  
-    FROM team_schedule_review 
-    INNER JOIN journey ON team_schedule.id_journey = journey.id';
-    private $queryUpdate = 'UPDATE team_schedule_review SET id = :identificacion, team_name = :teamname, check_in_review = :checkinreview
-    , check_out_review = :checkoutreview, id_journey = :idjpurneys  WHERE id = :identificacion';
-    private $queryDelete = 'DELETE FROM team_schedule_review WHERE id = :identificacion';
+    private $queryPost = 'INSERT INTO team_schedules_review(id,team_name,check_in_review,check_out_review,id_journey) VALUES(:identificacion,:teamname,:checkinreview,:checkoutreview,:idjpurneys)';
+    private $queryGetAll = 'SELECT team_schedules_review.*, journey.name_journey AS name_journey  
+    FROM team_schedules_review 
+    INNER JOIN journey ON team_schedules_review.id_journey = journey.id';
+    private $queryUpdate = 'UPDATE team_schedules_review SET id = :identificacion, team_name = :teamname, check_in_review = :checkinreview, check_out_review = :checkoutreview, id_journey = :idjpurneys  WHERE id = :identificacion';
+    private $queryDelete = 'DELETE FROM team_schedules_review WHERE id = :identificacion';
     private $message;
     use getInstance;
     function __construct(private $id=1, public $team_name=1, public $check_in_review=1, public $check_out_review=1, private $id_journey=1)
