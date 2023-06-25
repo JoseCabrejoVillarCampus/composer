@@ -1,5 +1,8 @@
 <?php
 
+use App\team_schedule_soft_skils\team_schedule_soft_skils;
+use App\team_schedule_soft_skils\team_schedule_software_skiils;
+
     header("Content-Type: application/json");
 
     require_once "./vendor/autoload.php";
@@ -457,6 +460,66 @@
     $router->post('/api/team_educators/del', function(){
         \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamEducators();
     });
-    $router->run();
+    /*
+    ?rutas  team_schedule_english
+    */
+    $router->get('/api/team_schedule_english', function(){
+        \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleEnglish();
+    });
+    $router->post('/api/team_schedule_english/post', function(){
+        \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamScheduleEnglish();
+    });
+    $router->post('/api/team_schedule_english/put', function(){
+        \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamScheduleEnglish();
+    });
+    $router->post('/api/team_schedule_english/del', function(){
+        \App\team_schedule_english\team_schedule_english::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamScheduleEnglish();
+    });
+    /*
+    ?rutas  team_schedule_review
+    */
+    $router->get('/api/team_schedule_review', function(){
+        \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleReview();
+    });
+    $router->post('/api/team_schedule_review/post', function(){
+        \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamScheduleReview();
+    });
+    $router->post('/api/team_schedule_review/put', function(){
+        \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamScheduleReview();
+    });
+    $router->post('/api/team_schedule_review/del', function(){
+        \App\team_schedule_review\team_schedule_review::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamScheduleReview();
+    });
+    /*
+    ?rutas  team_schedule_soft_skils
+    */
+    $router->get('/api/team_schedule_soft_skils', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    });
+    $router->post('/api/team_schedule_soft_skils/post', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    });
+    $router->post('/api/team_schedule_soft_skils/put', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    });
+    $router->post('/api/team_schedule_soft_skils/del', function(){
+        \App\team_schedule_soft_skils\team_schedule_soft_skils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamScheduleSoft();
+    });
+    /*
+    ?rutas  team_schedule_software_skiils
+    */
+    $router->get('/api/team_schedule_software_skiils', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    });
+    $router->post('/api/team_schedule_software_skiils/post', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    });
+    $router->post('/api/team_schedule_software_skiils/put', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    });
+    $router->post('/api/team_schedule_software_skiils/del', function(){
+        \App\team_schedule_software_skiils\team_schedule_software_skiils::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamSchedule();
+    });
+    $router->run(); 
 
 ?>
