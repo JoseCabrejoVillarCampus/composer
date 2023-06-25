@@ -217,6 +217,21 @@
     $router->post('/api/locations/del', function(){
         \App\locations\locations::getInstance(json_decode(file_get_contents("php://input"),true))->deleteLocation();
     });
+    /*
+    ?rutas  maint_area
+    */
+    $router->get('/api/maint_area', function(){
+        \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->getAllMaintArea();
+    });
+    $router->post('/api/maint_area/post', function(){
+        \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->postMaintArea();
+    });
+    $router->post('/api/maint_area/put', function(){
+        \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->putMaintArea();
+    });
+    $router->post('/api/maint_area/del', function(){
+        \App\maint_area\maint_area::getInstance(json_decode(file_get_contents("php://input"),true))->deleteMaintArea();
+    });
     $router->run();
 
 ?>
