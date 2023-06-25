@@ -337,6 +337,21 @@
     $router->post('/api/regions/del', function(){
         \App\regions\regions::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRegions();
     });
+    /*
+    ?rutas  review_skills
+    */
+    $router->get('/api/review_skills', function(){
+        \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->getAllReviewSkills();
+    });
+    $router->post('/api/review_skills/post', function(){
+        \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postReviewSkills();
+    });
+    $router->post('/api/review_skills/put', function(){
+        \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putReviewSkills();
+    });
+    $router->post('/api/review_skills/del', function(){
+        \App\review_skills\review_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteReviewSkills();
+    });
     $router->run();
 
 ?>
