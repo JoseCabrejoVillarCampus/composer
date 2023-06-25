@@ -442,6 +442,21 @@
     $router->post('/api/teachers/del', function(){
         \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeachers();
     });
+    /*
+    ?rutas  team_educators
+    */
+    $router->get('/api/team_educators', function(){
+        \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeamEducators();
+    });
+    $router->post('/api/team_educators/post', function(){
+        \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->postTeamEducators();
+    });
+    $router->post('/api/team_educators/put', function(){
+        \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->putTeamEducators();
+    });
+    $router->post('/api/team_educators/del', function(){
+        \App\team_educators\team_educators::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeamEducators();
+    });
     $router->run();
 
 ?>
