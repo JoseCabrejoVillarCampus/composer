@@ -367,6 +367,21 @@
     $router->post('/api/routes/del', function(){
         \App\routes\routes::getInstance(json_decode(file_get_contents("php://input"),true))->deleteRoutes();
     });
+    /*
+    ?rutas  soft_skills
+    */
+    $router->get('/api/soft_skills', function(){
+        \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->getAllSoftSkill();
+    });
+    $router->post('/api/soft_skills/post', function(){
+        \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->postSoftSkill();
+    });
+    $router->post('/api/soft_skills/put', function(){
+        \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->putSoftSkill();
+    });
+    $router->post('/api/soft_skills/del', function(){
+        \App\soft_skills\soft_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftSkill();
+    });
     $router->run();
 
 ?>

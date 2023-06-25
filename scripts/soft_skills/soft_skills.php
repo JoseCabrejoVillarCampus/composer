@@ -1,5 +1,5 @@
 <?php
-namespace App\campers;
+namespace App\soft_skills;
 use App\db\connect;
 use App\getInstance;
 
