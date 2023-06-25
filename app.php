@@ -397,6 +397,21 @@
     $router->post('/api/software_skills/del', function(){
         \App\software_skills\software_skills::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSoftwareSkill();
     });
+    /*
+    ?rutas  staff
+    */
+    $router->get('/api/staff', function(){
+        \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->getAllStaff();
+    });
+    $router->post('/api/staff/post', function(){
+        \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->postStaff();
+    });
+    $router->post('/api/staff/put', function(){
+        \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->putStaff();
+    });
+    $router->post('/api/staff/del', function(){
+        \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->deleteStaff();
+    });
     $router->run();
 
 ?>
