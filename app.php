@@ -412,6 +412,36 @@
     $router->post('/api/staff/del', function(){
         \App\staff\staff::getInstance(json_decode(file_get_contents("php://input"),true))->deleteStaff();
     });
+    /*
+    ?rutas  subjects
+    */
+    $router->get('/api/subjects', function(){
+        \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->getAllSubjects();
+    });
+    $router->post('/api/subjects/post', function(){
+        \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->postSubjects();
+    });
+    $router->post('/api/subjects/put', function(){
+        \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->putSubjects();
+    });
+    $router->post('/api/subjects/del', function(){
+        \App\subjects\subjects::getInstance(json_decode(file_get_contents("php://input"),true))->deleteSubjects();
+    });
+    /*
+    ?rutas  teachers
+    */
+    $router->get('/api/teachers', function(){
+        \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->getAllTeachers();
+    });
+    $router->post('/api/teachers/post', function(){
+        \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->postTeachers();
+    });
+    $router->post('/api/teachers/put', function(){
+        \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->putTeachers();
+    });
+    $router->post('/api/teachers/del', function(){
+        \App\teachers\teachers::getInstance(json_decode(file_get_contents("php://input"),true))->deleteTeachers();
+    });
     $router->run();
 
 ?>
