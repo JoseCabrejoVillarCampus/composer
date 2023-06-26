@@ -1,4 +1,4 @@
-# Calculadora PHP
+# 						ENDPOINTS
 
 [Descripción del proyecto]
 
@@ -8,7 +8,7 @@ Aplicamos PHP y conectamos mediante composer los archivos.
 
 Ademas Creamos los Endpoints para los querys de cada tabla
 
-Tambien usamos los metodos foreach y switchCase, en esta construccion.
+Las tablas con el prefijo schedule, presentan errores en su estructura ademas de review_skill
 
 [Estado del proyecto]
 
