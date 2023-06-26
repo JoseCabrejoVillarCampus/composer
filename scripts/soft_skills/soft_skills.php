@@ -32,9 +32,9 @@ class soft_skills extends connect
             $res->bindValue("location",$this->id_location);
             $res->bindValue("subject",$this->id_subject);
             $res->execute();
-            $this->message = ["Code" => 200 + $res->rowCount(), "Message" => "inserted data"];
+            $this->message = json_encode(["Code" => 200 + $res->rowCount(), "Message" => "inserted data"]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }
@@ -50,9 +50,9 @@ class soft_skills extends connect
             $res->bindValue("idtrainer", 1);
             $res->bindValue("location", 1);
             $res->bindValue("subject", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
+            $this->message = json_encode(["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }
@@ -71,9 +71,9 @@ class soft_skills extends connect
             $res->execute();
 
             if ($res->rowCount() > 0) {
-                $this->message = ["Code" => 200, "Message" => "Data updated"];
+                $this->message = json_encode(["Code" => 200, "Message" => "Data updated"]);
             } else {
-                $this->message = ["Code" => 404, "Message" => "No matching record found"];
+                $this->message = json_encode(["Code" => 404, "Message" => "No matching record found"]);
             }
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
@@ -87,9 +87,9 @@ class soft_skills extends connect
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
             $res->execute();
-            $this->message = ["Code" => 200, "Message" => "Data delete"];
+            $this->message = json_encode(["Code" => 200, "Message" => "Data delete"]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }

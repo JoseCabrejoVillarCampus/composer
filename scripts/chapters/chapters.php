@@ -28,9 +28,9 @@ class chapters extends connect
             $res->bindValue("descript", $this->description);
             $res->bindValue("days", $this->duration_days);
             $res->execute();
-            $this->message = ["Code" => 200 + $res->rowCount(), "Message" => "inserted data"];
+            $this->message = json_encode(["Code" => 200 + $res->rowCount(), "Message" => "inserted data"]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }
@@ -48,9 +48,9 @@ class chapters extends connect
             $res->bindValue("enddate", 1);
             $res->bindValue("descript", 1);
             $res->bindValue("days", 1);
-            $this->message = ["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)];
+            $this->message = json_encode(["Code" => 200, "Message" => $res->fetchAll(\PDO::FETCH_ASSOC)]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }
@@ -71,9 +71,9 @@ class chapters extends connect
             $res->execute();
 
             if ($res->rowCount() > 0) {
-                $this->message = ["Code" => 200, "Message" => "Data updated"];
+                $this->message = json_encode(["Code" => 200, "Message" => "Data updated"]);
             } else {
-                $this->message = ["Code" => 404, "Message" => "No matching record found"];
+                $this->message = json_encode(["Code" => 404, "Message" => "No matching record found"]);
             }
         } catch (\PDOException $e) {
             $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
@@ -88,9 +88,9 @@ class chapters extends connect
             $res = $this->conx->prepare($this->queryPost);
             $res->bindValue("identificacion", $this->id);
             $res->execute();
-            $this->message = ["Code" => 200, "Message" => "Data delete"];
+            $this->message = json_encode(["Code" => 200, "Message" => "Data delete"]);
         } catch (\PDOException $e) {
-            $this->message = ["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]];
+            $this->message = json_encode(["Code" => $e->getCode(), "Message" => $res->errorInfo()[2]]);
         } finally {
             print_r($this->message);
         }
