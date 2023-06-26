@@ -81,11 +81,6 @@ class emergency_contact extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("staff",$this->id_staff);
-            $res->bindValue("phone", $this->cel_number);
-            $res->bindValue("relation",$this->relationship);
-            $res->bindValue("name", $this->full_name);
-            $res->bindValue("mail",$this->email);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

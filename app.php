@@ -1,8 +1,5 @@
 <?php
 
-use App\team_schedule_soft_skils\team_schedule_soft_skils;
-use App\team_schedule_soft_skils\team_schedule_software_skiils;
-
     header("Content-Type: application/json");
 
     require_once "./vendor/autoload.php";

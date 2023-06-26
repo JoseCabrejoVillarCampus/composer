@@ -92,14 +92,6 @@ class staff extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("document",$this->doc);
-            $res->bindValue("firstname",$this->first_name);
-            $res->bindValue("secondname",$this->second_name);
-            $res->bindValue("firstsurname",$this->first_surname);
-            $res->bindValue("secondsurname",$this->second_surname);
-            $res->bindValue("eps_",$this->eps);
-            $res->bindValue("idarea",$this->id_area);
-            $res->bindValue("idcity",$this->id_city);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

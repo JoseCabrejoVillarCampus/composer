@@ -87,12 +87,6 @@ class chapters extends connect
             $res = $this->conx->prepare($this->queryDelete);
             $res = $this->conx->prepare($this->queryPost);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idthem", $this->id_thematic_units);
-            $res->bindValue("namechap", $this->name_chapter);
-            $res->bindValue("startdate", $this->start_date);
-            $res->bindValue("enddate", $this->end_date);
-            $res->bindValue("descript", $this->description);
-            $res->bindValue("days", $this->duration_days);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

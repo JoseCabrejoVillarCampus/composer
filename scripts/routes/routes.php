@@ -80,11 +80,6 @@ class routes extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("rout",$this->name_route);
-            $res->bindValue("stardate",$this->start_date);
-            $res->bindValue("enddate",$this->end_date);
-            $res->bindValue("descripcion",$this->description);
-            $res->bindValue("duracion",$this->duration_month);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

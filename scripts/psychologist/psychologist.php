@@ -85,11 +85,6 @@ class psychologist extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idstaff",$this->id_staff);
-            $res->bindValue("idrout",$this->id_route);
-            $res->bindValue("areapsyco", $this->id_academic_area_psycologist);
-            $res->bindValue("posicion",$this->id_position);
-            $res->bindValue("teameducator",$this->id_team_educator);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

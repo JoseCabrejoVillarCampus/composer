@@ -73,9 +73,6 @@ class journey extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("name",$this->name_journey);
-            $res->bindValue("checkin", $this->check_in);
-            $res->bindValue("checkout",$this->check_out);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

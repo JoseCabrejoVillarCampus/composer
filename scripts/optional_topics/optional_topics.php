@@ -85,11 +85,6 @@ class optional_topics extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("topic",$this->id_topic);
-            $res->bindValue("team",$this->id_team);
-            $res->bindValue("subject",$this->id_subject);
-            $res->bindValue("camper",$this->id_camper);
-            $res->bindValue("teameducator",$this->id_team_educator);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

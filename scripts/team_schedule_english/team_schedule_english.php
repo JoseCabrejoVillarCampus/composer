@@ -13,7 +13,7 @@ class team_schedules_english extends connect
     private $queryDelete = 'DELETE FROM team_schedules_english WHERE id = :identificacion';
     private $message;
     use getInstance;
-    function __construct(private $id=1, public $team_name=1, public $check_in_review=1, public $check_out_review=1, private $id_journey=1)
+    function __construct(private $id=1, public $team_name=1, public $check_in_english=1, public $check_out_english=1, private $id_journey=1)
     {
         parent::__construct();
     }
@@ -79,10 +79,6 @@ class team_schedules_english extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("teamname",$this->team_name);
-            $res->bindValue("checkinenglish",$this->check_in_english);
-            $res->bindValue("checkoutenglish",$this->check_out_english);
-            $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

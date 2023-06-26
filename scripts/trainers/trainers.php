@@ -89,12 +89,6 @@ class trainers extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idstaff",$this->id_module);
-            $res->bindValue("idlvl",$this->name_topic);
-            $res->bindValue("idroute",$this->start_date);
-            $res->bindValue("idacademicarea",$this->end_date);
-            $res->bindValue("posicion",$this->description);
-            $res->bindValue("teameducator",$this->duration_days);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

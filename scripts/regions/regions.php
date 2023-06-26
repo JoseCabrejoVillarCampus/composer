@@ -71,8 +71,6 @@ class regions extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("namereg",$this->name_region);
-            $res->bindValue("country",$this->id_country);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

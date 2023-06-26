@@ -79,10 +79,6 @@ class team_schedule_soft_skils extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("teamname",$this->team_name);
-            $res->bindValue("checkinsoft",$this->check_in_soft);
-            $res->bindValue("checkoutsoft",$this->check_out_soft);
-            $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

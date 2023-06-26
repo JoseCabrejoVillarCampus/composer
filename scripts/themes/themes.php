@@ -84,12 +84,6 @@ class themes extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idchapter",$this->id_chapter);
-            $res->bindValue("namethem",$this->name_theme);
-            $res->bindValue("startdate",$this->start_date);
-            $res->bindValue("enddate",$this->end_date);
-            $res->bindValue("descript",$this->description);
-            $res->bindValue("days",$this->duration_days);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

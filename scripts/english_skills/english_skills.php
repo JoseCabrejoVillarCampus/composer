@@ -85,11 +85,6 @@ class english_skills extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("team",$this->id_team_schedule);
-            $res->bindValue("journey", $this->id_journey);
-            $res->bindValue("teacher",$this->id_teacher);
-            $res->bindValue("location", $this->id_location);
-            $res->bindValue("subject",$this->id_subject);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

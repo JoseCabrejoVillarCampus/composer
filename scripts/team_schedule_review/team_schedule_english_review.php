@@ -78,10 +78,6 @@ class team_schedules_review extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("teamname",$this->team_name);
-            $res->bindValue("checkinreview",$this->check_in_review);
-            $res->bindValue("checkoutreview",$this->check_out_review);
-            $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

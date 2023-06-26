@@ -85,13 +85,6 @@ class working_info extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idstaff",$this->id_staff);
-            $res->bindValue("yearsexp",$this->years_exp);
-            $res->bindValue("monthsexp",$this->months_exp);
-            $res->bindValue("idworkreference", $this->id_work_reference);
-            $res->bindValue("idpersonal",$this->id_personal_ref);
-            $res->bindValue("startcontract",$this->start_contract);
-            $res->bindValue("endcontract",$this->end_contract);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

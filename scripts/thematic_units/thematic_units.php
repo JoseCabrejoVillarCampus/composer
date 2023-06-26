@@ -84,12 +84,6 @@ class thematic_units extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idroute",$this->id_route);
-            $res->bindValue("namethemunit",$this->name_thematics_units);
-            $res->bindValue("startdate",$this->start_date);
-            $res->bindValue("enddate",$this->end_date);
-            $res->bindValue("descript",$this->description);
-            $res->bindValue("days",$this->duration_days);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

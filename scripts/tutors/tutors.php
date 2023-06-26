@@ -76,9 +76,6 @@ class tutors extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idstaff",$this->id_staff);
-            $res->bindValue("idacademicarea",$this->id_academic_area);
-            $res->bindValue("posicion",$this->id_position);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

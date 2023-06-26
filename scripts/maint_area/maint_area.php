@@ -81,10 +81,6 @@ class maint_area extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idarea", $this->id_area);
-            $res->bindValue("idstaff", $this->id_staff);
-            $res->bindValue("idposicion", $this->id_position);
-            $res->bindValue("idjpurneys", $this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

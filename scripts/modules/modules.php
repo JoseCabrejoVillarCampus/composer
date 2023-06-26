@@ -82,12 +82,6 @@ class modules extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("namemodul",$this->name_module);
-            $res->bindValue("stardate",$this->start_date);
-            $res->bindValue("enddate",$this->end_date);
-            $res->bindValue("descripcion",$this->description);
-            $res->bindValue("duracion",$this->duration_days);
-            $res->bindValue("idtheme",$this->id_theme);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

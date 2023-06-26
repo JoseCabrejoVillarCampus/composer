@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Base de datos: `campusland`
 --
 USE campusland;
-SELECT * FROM admin_area;
+SELECT * FROM area;
 -- --------------------------------------------------------
 
 --

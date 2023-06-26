@@ -87,13 +87,6 @@ class contact_info extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idstaff", $this->id_staff);
-            $res->bindValue("whats", $this->whatsapp);
-            $res->bindValue("inst", $this->instagram);
-            $res->bindValue("link", $this->linkedin);
-            $res->bindValue("email", $this->email);
-            $res->bindValue("dir", $this->address);
-            $res->bindValue("phon", $this->cel_number);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

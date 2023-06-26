@@ -21,10 +21,6 @@ class team_schedule_software_skiils extends connect
         try {
             $res = $this->conx->prepare($this->queryPost);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("teamname",$this->team_name);
-            $res->bindValue("checkinskills",$this->check_in_skills);
-            $res->bindValue("checkoutskills",$this->check_out_skills);
-            $res->bindValue("idjpurneys",$this->id_journey);
             $res->execute();
             $this->message = ["Code" => 200 + $res->rowCount(), "Message" => "inserted data"];
         } catch (\PDOException $e) {

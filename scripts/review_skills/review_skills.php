@@ -81,10 +81,6 @@ class review_skills extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("team",$this->id_team_schedule);
-            $res->bindValue("journey",$this->id_journey);
-            $res->bindValue("tutor",$this->id_tutor);
-            $res->bindValue("locacion",$this->id_location);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

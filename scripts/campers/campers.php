@@ -97,14 +97,6 @@ class campers extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("idteam", $this->id_team_schedule);
-            $res->bindValue("idrout", $this->id_route);
-            $res->bindValue("idtrainer", $this->id_trainer);
-            $res->bindValue("idpsy", $this->id_psycologist);
-            $res->bindValue("idteacher", $this->id_teacher);
-            $res->bindValue("idlvl", $this->id_level);
-            $res->bindValue("idjourney", $this->id_journey);
-            $res->bindValue("idstaff", $this->id_staff);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {

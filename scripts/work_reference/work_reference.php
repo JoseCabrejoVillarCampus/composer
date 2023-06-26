@@ -77,10 +77,6 @@ class work_reference extends connect
         try {
             $res = $this->conx->prepare($this->queryDelete);
             $res->bindValue("identificacion", $this->id);
-            $res->bindValue("name",$this->full_name);
-            $res->bindValue("phone",$this->cel_number);
-            $res->bindValue("ocupacion",$this->position);
-            $res->bindValue("comp", $this->company);
             $res->execute();
             $this->message = ["Code" => 200, "Message" => "Data delete"];
         } catch (\PDOException $e) {
